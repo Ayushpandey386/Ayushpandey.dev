@@ -1,11 +1,18 @@
 import { ArrowUpRight } from "lucide-react";
 
-const PROJECTS: { title: string; description: string; tags: string[]; href: string }[] = [
+const PROJECTS: {
+  title: string;
+  logo: string;
+  description: string;
+  tags: string[];
+  href: string;
+}[] = [
   {
     title: "Arvis",
+    logo: ">_<",
     description:
-      "An open-source AI agent platform. Built the website and added rate limiting to the subscribe API to protect against abuse.",
-    tags: ["Next.js", "TypeScript", "AI", "Open Source"],
+      "Self-hosted AI agent platform that routes Discord, Telegram, Slack, and WhatsApp messages to teams of specialized AI agents. Silent failover, automatic memory, and full cost tracking across every LLM provider.",
+    tags: ["Node.js", "TypeScript", "AI Agents", "Self-hosted", "Open Source"],
     href: "https://github.com/Arvis-agent/arvis",
   },
 ];
@@ -35,12 +42,19 @@ export function ProjectsSection() {
         <a
           key={project.title}
           href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group grid border-t border-border transition-[background-color] hover:bg-accent/30 md:grid-cols-[200px_1fr] active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
-          <div className="border-b border-border px-6 py-4 md:border-b-0 md:border-r md:py-6">
+          <div className="border-b border-border px-6 py-4 md:border-b-0 md:border-r md:py-6 flex flex-col justify-between gap-4">
             <span className="font-mono text-xs text-muted-foreground/60 tabular-nums">
               {String(i + 1).padStart(2, "0")}
             </span>
+            {project.logo && (
+              <span className="font-mono text-sm font-bold text-foreground/80 tracking-tighter">
+                {project.logo}
+              </span>
+            )}
           </div>
 
           <div className="flex items-start justify-between gap-4 px-6 py-5 md:py-6">
