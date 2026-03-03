@@ -1,6 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
 
-const PROJECTS: { title: string; description: string; tags: string[]; href: string }[] = [];
+const PROJECTS: { title: string; description: string; tags: string[]; href: string }[] = [
+  {
+    title: "Arvis",
+    description:
+      "An open-source AI agent platform. Built the website and added rate limiting to the subscribe API to protect against abuse.",
+    tags: ["Next.js", "TypeScript", "AI", "Open Source"],
+    href: "https://github.com/Arvis-agent/arvis",
+  },
+];
 
 export function ProjectsSection() {
   return (
@@ -12,20 +20,14 @@ export function ProjectsSection() {
           </span>
         </div>
         <div className="px-6 py-10 md:py-16">
-          {PROJECTS.length === 0 ? (
-            <p className="font-mono text-sm text-muted-foreground/60">
-              No projects yet — cooking something up.
-            </p>
-          ) : (
-            <div className="flex items-baseline justify-between">
-              <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground/60">
-                Selected work
-              </span>
-              <span className="font-mono text-xs text-muted-foreground/60 tabular-nums">
-                {String(PROJECTS.length).padStart(2, "0")} items
-              </span>
-            </div>
-          )}
+          <div className="flex items-baseline justify-between">
+            <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground/60">
+              Selected work
+            </span>
+            <span className="font-mono text-xs text-muted-foreground/60 tabular-nums">
+              {String(PROJECTS.length).padStart(2, "0")} items
+            </span>
+          </div>
         </div>
       </div>
 
